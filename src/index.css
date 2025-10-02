@@ -1,0 +1,145 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Clean, minimalist color palette to match reference design */
+    --background: 0 0% 95%;
+    --foreground: 0 0% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 12%;
+
+    /* Tomato-inspired primary */
+    --primary: 14 85% 55%;
+    --primary-foreground: 0 0% 98%;
+
+    /* Clean neutral secondary */
+    --secondary: 0 0% 85%;
+    --secondary-foreground: 0 0% 12%;
+
+    /* Light neutral tones */
+    --muted: 0 0% 88%;
+    --muted-foreground: 0 0% 45%;
+
+    /* Golden accent */
+    --accent: 45 90% 75%;
+    --accent-foreground: 0 0% 12%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 0 0% 88%;
+    --input: 0 0% 88%;
+    --ring: 14 85% 55%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+
+  .dark {
+    /* Dark mode with warm tones */
+    --background: 25 30% 8%;
+    --foreground: 28 40% 92%;
+
+    --card: 25 25% 12%;
+    --card-foreground: 28 40% 92%;
+
+    --popover: 25 25% 12%;
+    --popover-foreground: 28 40% 92%;
+
+    --primary: 14 85% 55%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 25 20% 18%;
+    --secondary-foreground: 28 40% 92%;
+
+    --muted: 25 20% 15%;
+    --muted-foreground: 28 20% 65%;
+
+    --accent: 45 80% 65%;
+    --accent-foreground: 25 30% 8%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 25 20% 20%;
+    --input: 25 20% 18%;
+    --ring: 14 85% 55%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  /* Custom design tokens */
+  :root {
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(14 75% 45%));
+    --gradient-warm: linear-gradient(180deg, hsl(var(--background)), hsl(28 60% 94%));
+    --shadow-recipe: 0 8px 32px -8px hsl(var(--primary) / 0.15);
+    --shadow-card: 0 4px 16px -4px hsl(25 20% 25% / 0.1);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    background: linear-gradient(180deg, hsl(var(--background)), hsl(28 60% 94%));
+    min-height: 100vh;
+  }
+
+  .recipe-card {
+    @apply bg-card border border-border rounded-2xl p-6;
+    box-shadow: var(--shadow-card);
+    transition: var(--transition-smooth);
+  }
+
+  .recipe-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-recipe);
+  }
+
+  .search-button {
+    @apply bg-primary text-primary-foreground font-semibold px-8 py-3 rounded-xl;
+    background: var(--gradient-primary);
+    transition: var(--transition-smooth);
+  }
+
+  .search-button:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-recipe);
+  }
+}
